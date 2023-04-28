@@ -43,7 +43,6 @@ const UserProfile = () => {
   const apiCall = async () => {
     var response_data = await freelancerProfile(freelancerId);
     setData(response_data.data[0]);
-    console.log(response_data.data);
   };
   useEffect(() => {
     // console.log(stateData.state.freelancerId);

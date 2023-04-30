@@ -269,6 +269,32 @@ export const freelancerProfile = async (Id) => {
   return response_data;
 };
 
+//search freelancers
+export const searchfreelancers = async(search) => {
+  var response_data;
+ await axios.post(`${base_url}/user/searchfreelancers`,{
+  keyword:search
+ })
+ .then((res) => {
+  response_data = res.data;
+ })
+ .catch((err) => console.log(err))
+ return response_data;
+}
+
+// campaigns
+export const searchcampaigns = async(search) => {
+  var response_data;
+ await axios.post(`${base_url}/startup/searchcampaigns`,{
+  keyword:search
+ })
+ .then((res) => {
+  response_data = res.data;
+ })
+ .catch((err) => console.log(err))
+ return response_data;
+}
+
 // Freelancer Campaigns
 export const freelancerCampaigns = async (Id) => {
   var response_data;

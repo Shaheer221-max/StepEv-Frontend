@@ -11,7 +11,7 @@ import closeBtn from "./../../assets/Images/closeBtn.png";
 import { useNavigate } from "react-router-dom";
 import PopupMenu from "./PopupMenu";
 // import { getUsers } from "../../api/axios";
-import { getUsers } from "../../api/axios";
+import { getUsers, searchfreelancers } from "../../api/axios";
 import activeBtn from "./../../assets/Images/Pagination/activeBtn.svg";
 import btn from "./../../assets/Images/Pagination/btn.svg";
 
@@ -22,6 +22,7 @@ const Users = () => {
   const [metaData, setMetaData] = useState();
   const [render, setRender] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   const getData = async (count) => {
@@ -31,6 +32,16 @@ const Users = () => {
     setMetaData(response_data.metaData[0]);
     setTotalPage(Math.ceil(response_data.metaData[0].total / 10));
   };
+const Searchfreelancers = async(keyword) => {
+  console.log(data)
+  var fdata = await searchfreelancers(keyword);
+  var temp = {users:fdata.data}
+  setData(temp)
+  // console.log(data.data)
+  // var users = [data.data]
+
+
+}
   const handleNavigation = (freelancerId, e, status) => {
     e.preventDefault();
     navigate("/users/user-profile", {
@@ -63,12 +74,13 @@ const Users = () => {
   return (
     <>
       <div>
-        <Heading title={"Users"} />
+        <Heading title={"User"} />
       </div>
       <div className="userSearchContainer">
         <div>
-          <SearchBox />
+          <SearchBox placeholder="Search user by name, email..." search={search} setSearch={setSearch} Searchfunction={Searchfreelancers}  />
         </div>
+        
         <div
           className="btnFilter"
           onClick={(e) => {
@@ -123,9 +135,9 @@ const Users = () => {
                     alt="User image"
                   />
                   {user.name}
-                  {user.warnings !== 0 ? (
+                  {/* {user.warnings !== 0 ? (
                     <Strikes strike={user.warnings} />
-                  ) : null}
+                  ) : null} */}
                 </td>
                 <td className="Td">
                   {user.phoneNumber === undefined ? "N/A" : user.phoneNumber}

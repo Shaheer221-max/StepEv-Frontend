@@ -6,7 +6,7 @@ import SearchBox from "./../Reusable/SearchBox";
 import campaignprofile from "./../../assets/Images/Campaign/campaignprofile.png";
 import dot from "./../../assets/Images/Dashboard/dots.svg";
 import { useNavigate } from "react-router-dom";
-import { getCampaigns, date } from "../../api/axios";
+import { getCampaigns, date, searchcampaigns } from "../../api/axios";
 import activeBtn from "./../../assets/Images/Pagination/activeBtn.svg";
 import btn from "./../../assets/Images/Pagination/btn.svg";
 
@@ -14,6 +14,7 @@ const Campaigns = () => {
   const [data, setData] = useState();
   const [totalPage, setTotalPage] = useState();
   const [metaData, setMetaData] = useState();
+  const [search, setSearch] = useState();
 
   const navigate = useNavigate();
 
@@ -30,6 +31,14 @@ const Campaigns = () => {
     setTotalPage(Math.ceil(response_data.metaData[0].total / 10));
   };
 
+  const Searchcampaigns = async(keyword) => {
+    console.log(data)
+    var fdata = await searchcampaigns(keyword);
+    setData(fdata.data[0].startups)
+  
+  
+  }
+
   const handleNextPage = () => {
     let count = metaData.page + 1;
     callApi(count);
@@ -41,13 +50,13 @@ const Campaigns = () => {
 
   useEffect(() => {
     callApi(1);
-  }, [data]);
+  }, []);
   return (
     <>
       <Heading title="Campaigns" />
       <div className="campaignsHeader">
         <div>
-          <SearchBox />
+          <SearchBox placeholder="Search campaign by business name..." search={search} setSearch={setSearch} Searchfunction={Searchcampaigns} />
         </div>
         <div className="campaignsFilter">
           <img src={filter} alt="" className="filterImg" />

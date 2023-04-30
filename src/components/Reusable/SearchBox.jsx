@@ -1,13 +1,17 @@
 import React from "react";
 import "./SearchBox.css";
-const SearchBox = () => {
+import * as BsIcons from "react-icons/bs"
+const SearchBox = ({search, placeholder, setSearch, Searchfunction}) => {
   return (
     <>
       <input
         className="searchUserBox"
         type="text"
-        placeholder="Search user by name, email..."
+        value={search}
+        placeholder={placeholder}
+        onChange={(text) => setSearch(text.target.value)}
       />
+      <span onClick={() => Searchfunction(search)} className="searchIcon"><BsIcons.BsSearch /></span>
     </>
   );
 };

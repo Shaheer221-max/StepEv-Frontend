@@ -17,3 +17,10 @@
 .searchUserBox::placeholder {
   color: var(--ligthBlue-color);
 }
+
+.searchIcon {
+  position:relative;
+  cursor: pointer;
+  right: 4%;
+  z-index: 999;
+}

@@ -11,7 +11,7 @@ import close from "./../../assets/Images/close.png";
 
 import SettingBox from "./SettingBox";
 const Setting = () => {
-  const [setting, setSetting] = useState(true);
+  const [setting, setSetting] = useState(false);
   const handleClose = () => {
     setSetting(!setting);
   };
@@ -54,7 +54,7 @@ const Setting = () => {
           <div className="skillClose" onClick={() => handleClose()}>
             <img align="right" src={close} alt="Close btn" />
           </div>
-          <SettingBox />
+          <SettingBox handleClose={handleClose} />
         </div>
       ) : null}
     </>

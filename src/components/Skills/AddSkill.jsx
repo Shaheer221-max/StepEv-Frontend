@@ -3,7 +3,7 @@ import "./AddSkill.css";
 import Heading from "./../Reusable/Heading";
 import { addSkill, updateSkill } from "../../api/axios";
 
-const AddSkill = ({ title, holder, btnValue, funCall, id }) => {
+const AddSkill = ({ title, holder,apiCall, btnValue, funCall, id,handleSkill }) => {
   const [skillTitle, setSkillTitle] = useState();
   const [skillId, setSkillId] = useState(id);
 
@@ -35,11 +35,13 @@ const AddSkill = ({ title, holder, btnValue, funCall, id }) => {
         />
       </div>
       <div className="skillBtns">
-        <div className="cancelSkillBtn skillBtn">Cancel</div>
+        <div onClick={() => handleSkill()} className="cancelSkillBtn skillBtn">Cancel</div>
         <div
           className="cancelAddBtn skillBtn"
           onClick={() => {
             add();
+            handleSkill();
+            apiCall();
           }}
         >
           <p>{btnValue}</p>

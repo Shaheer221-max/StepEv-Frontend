@@ -39,6 +39,7 @@ const Skill = () => {
     setSkillId(id);
     setUpdateSkill(!updateSkill);
     setState(!state);
+    apiCall();
   };
 
   const handleDeleteSkill = (value, id) => {
@@ -138,6 +139,8 @@ const Skill = () => {
             holder="Add skill"
             btnValue="Add"
             funCall={true}
+            handleSkill={handleSkill}
+            apiCall={apiCall}
           />
         </div>
       ) : null}
@@ -153,6 +156,7 @@ const Skill = () => {
             btnValue="Update"
             funCall={false}
             id={skillID}
+            handleSkill={handleUpdate}
           />
         </div>
       ) : null}

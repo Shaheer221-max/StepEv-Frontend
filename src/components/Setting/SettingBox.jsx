@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import Heading from "../Reusable/Heading";
 import "./SettingItem.css";
-const SettingBox = () => {
-  const [pass, setPass] = useState(null);
-  const [confirmPass, setConfirmPass] = useState(null);
+import { updatePassword } from "../../api/axios";
+const SettingBox = ({handleClose}) => {
+  const [oldpass, setOldPass] = useState(null);
+  const [newPass, setNewPass] = useState(null);
   const [emptyField, setEmptyField] = useState(false);
   const [equal, setEqual] = useState(false);
   const [length, setLength] = useState(false);
 
-  const handlePassword = (event) => {
-    setPass(event.target.value);
+  const handleOldPassword = (event) => {
+    setOldPass(event.target.value);
     setLength(false);
   };
-  const confirmPassword = (event) => {
-    setConfirmPass(event.target.value);
+  const handleNewPassword = (event) => {
+    setNewPass(event.target.value);
   };
-  const handleSubmit = () => {};
+  const handleSubmit = async (newPass,oldPass) => {
+    await updatePassword(newPass, oldPass)
+  };
 
   return (
     <>
@@ -24,20 +27,20 @@ const SettingBox = () => {
       </div>
       <div className="skillAlign alignInputBox">
         <input
-          type="text"
+          type="password"
           className="addSkillBox"
-          placeholder="Add new password"
-          onChange={handlePassword}
-          value={pass}
+          placeholder="Enter old Password"
+          onChange={handleOldPassword}
+          value={oldpass}
         />
       </div>
       <div className="skillAlign">
         <input
-          type="text"
+          type="password"
           className="addSkillBox"
-          placeholder="Confirm new password"
-          onChange={confirmPassword}
-          value={confirmPass}
+          placeholder="Enter new password"
+          onChange={handleNewPassword}
+          value={newPass}
         />
       </div>
       {length ? (
@@ -53,8 +56,11 @@ const SettingBox = () => {
       ) : null}
 
       <div className="skillBtns changeBtns">
-        <div className="cancelSkillBtn skillBtn">Cancel</div>
-        <div className="cancelAddBtn skillBtn" onClick={handleSubmit}>
+        <div onClick={() => handleClose()} className="cancelSkillBtn skillBtn">Cancel</div>
+        <div className="cancelAddBtn skillBtn" onClick={() => {
+          handleSubmit(newPass,oldpass)
+          handleClose()
+          }}>
           <p>Change</p>
         </div>
       </div>

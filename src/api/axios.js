@@ -392,7 +392,7 @@ export const viewSkills = async () => {
   var config = {
     method: "get",
     maxBodyLength: Infinity,
-    url: `${base_url}/admin/skills`,
+    url: `${base_url}/admin/getallsskills`,
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y2ODE4M2YwM2U0ODAwMWViZWYyODQiLCJyb2xlIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY3NzMyMTU1MH0.zrGG4JKTI5pouAcH3ARFwrc93EXXwGD8Nn65ntkPN44",
@@ -417,7 +417,7 @@ export const addSkill = async (skillTitle) => {
   var config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: `${base_url}/admin/skills`,
+    url: `${base_url}/admin/addskill`,
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y2ODE4M2YwM2U0ODAwMWViZWYyODQiLCJyb2xlIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY3NzMyMTU1MH0.zrGG4JKTI5pouAcH3ARFwrc93EXXwGD8Nn65ntkPN44",
@@ -443,7 +443,7 @@ export const updateSkill = async (skillTitle, id) => {
   var config = {
     method: "put",
     maxBodyLength: Infinity,
-    url: `${base_url}/admin/skills`,
+    url: `${base_url}/admin/updateskill`,
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y2ODE4M2YwM2U0ODAwMWViZWYyODQiLCJyb2xlIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY3NzMyMTU1MH0.zrGG4JKTI5pouAcH3ARFwrc93EXXwGD8Nn65ntkPN44",
@@ -470,7 +470,7 @@ export const deleteSkill = async (skillTitle, id) => {
   var config = {
     method: "delete",
     maxBodyLength: Infinity,
-    url: `${base_url}/admin/skills`,
+    url: `${base_url}/admin/deleteskill`,
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Y2ODE4M2YwM2U0ODAwMWViZWYyODQiLCJyb2xlIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY3NzMyMTU1MH0.zrGG4JKTI5pouAcH3ARFwrc93EXXwGD8Nn65ntkPN44",
@@ -793,3 +793,32 @@ export const UnSuspendUser = async (userId, status) => {
       res = error.response.data;
     });
 };
+
+export const updatePassword = async(newPassword,oldPassword) => {
+  let res;
+  var data = JSON.stringify({
+    newPassword,
+    oldPassword
+  });
+  var config = {
+    method: "put",
+    maxBodyLength: Infinity,
+    url: `${base_url}/user/update/password`,
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZiNTNmMWUxYWFmZjAwMWUwMDUwM2IiLCJyb2xlIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY3Nzg1NTAyMn0.3NOKw5HW0AmLxtMXfBES-c2nONzmcpKf3X4Sf0OUHuM",
+      "Content-Type": "application/json",
+    },
+    data: data,
+    
+  };
+  await axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      res = response.data;
+    })
+    .catch(function (error) {
+      console.log(error.response.data);
+      res = error.response.data;
+    });
+}

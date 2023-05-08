@@ -81,7 +81,7 @@ const Earnings = () => {
               <td className="funds_price">${item?.appEarning}</td>
               <td>
                 <div className="funds_action_release funds_action_btn">
-                  <p>Release</p>
+                  <p>View Order</p>
                 </div>
               </td>
             </tr>

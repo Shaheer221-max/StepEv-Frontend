@@ -1,0 +1,20 @@
+.unapprovedSign {
+    width: 4.75vw;
+    height: 1.1vw;
+    padding: 0.13vw 0.65vw;
+    border-radius: 0.19vw;
+    margin-left: 0.52vw;
+    background-color: #54A3FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .unapprovedSign p {
+    font-weight: 400;
+    font-size: 0.65vw;
+    color: var(--white-color);
+    /* text-align: center; */
+    padding: 0;
+    margin: 0;
+  }
+  

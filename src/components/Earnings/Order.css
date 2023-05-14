@@ -1,0 +1,115 @@
+.alignSettingItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.2vw 0;
+  }
+  .alignSettingItem p {
+    font-weight: 400;
+    font-size: 1.32vw;
+    color: #8e8e8e;
+    margin-left: 3.2vw;
+  }
+  .alignSettingItem img {
+    width: 1.56vw;
+    margin-right: 4.2vw;
+  }
+  
+  .alignInputBox {
+    margin-bottom: 1vw;
+  }
+  .changeBtns {
+    margin-top: 1.3vw;
+  }
+  
+  .settingWarning {
+    font-size: 0.8vw;
+    text-align: center;
+    color: var(--red-color);
+  }
+.skill_text1 {
+    text-align: start;
+    border-bottom: 1px solid black;
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+
+}
+.userimage img {
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 2.47vw;
+  height: 2.47vw;
+}
+.username{
+  font-family: DM Sans;
+font-size: 16px;
+font-weight: 400;
+line-height: 21px;
+letter-spacing: 0em;
+text-align: left;
+margin-top: 20px;
+
+
+}
+.useremail {
+  font-family: DM Sans;
+font-size: 13px;
+font-weight: 400;
+line-height: 17px;
+letter-spacing: 0em;
+text-align: left;
+margin-top: -10px;
+
+}
+.userdetails {
+  margin-left: 10px;
+}
+.description {
+  margin-left: 20px;
+}
+.orderDescription {
+  font-family: DM Sans;
+font-size: 16px;
+font-weight: 500;
+line-height: 21px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+.price {
+  font-family: DM Sans;
+font-size: 24px;
+font-weight: 700;
+line-height: 31px;
+letter-spacing: 0em;
+text-align: left;
+color: #8489FC;
+;
+}
+/* .dialog {
+  width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    padding: 10px 20px 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column
+
+}
+.modalbackdrop{
+  position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color:rgba(0,0,0,0.2);
+
+} */

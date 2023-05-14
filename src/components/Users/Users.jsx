@@ -33,12 +33,9 @@ const Users = () => {
     setTotalPage(Math.ceil(response_data.metaData[0].total / 10));
   };
 const Searchfreelancers = async(keyword) => {
-  console.log(data)
   var fdata = await searchfreelancers(keyword);
   var temp = {users:fdata.data}
   setData(temp)
-  // console.log(data.data)
-  // var users = [data.data]
 
 
 }
@@ -131,10 +128,13 @@ const Searchfreelancers = async(keyword) => {
                   <img
                     crossOrigin="anonymous"
                     className="user_image"
-                    src={`https://stepdev.up.railway.app/media/getImage/${user.avatar}`}
+                    src={`https://stepev-dev.up.railway.app/media/getImage/${user.avatar}`}
                     alt="User image"
                   />
                   {user.name}
+                  {user.status == "Suspended" ? (
+                    <SuspendedSign />
+                   ): null}
                   {/* {user.warnings !== 0 ? (
                     <Strikes strike={user.warnings} />
                   ) : null} */}

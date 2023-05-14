@@ -123,7 +123,7 @@ const Warnings = () => {
                     <img
                       crossorigin="anonymous"
                       className="warningProfile"
-                      src={`https://stepdev.up.railway.app/media/getImage/${item.data.userAvatar}`}
+                      src={`https://stepev-dev.up.railway.app/media/getImage/${item.data.userAvatar}`}
                       alt="User"
                     />
                     <p className="warnUserName">{item.data.userName}</p>

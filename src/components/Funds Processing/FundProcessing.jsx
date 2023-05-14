@@ -63,7 +63,7 @@ const FundProcessing = () => {
               <td align="left" className="funds_name alignFundProfile">
                 <img
                   crossOrigin="anonymous"
-                  src={`https://stepdev.up.railway.app/media/getImage/${item.avatar}`}
+                  src={`https://stepev-dev.up.railway.app/media/getImage/${item.avatar}`}
                   alt=""
                 />{" "}
                 <p>{item.userName}</p>

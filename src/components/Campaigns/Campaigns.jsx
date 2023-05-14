@@ -4,6 +4,8 @@ import Heading from "./../Reusable/Heading";
 import filter from "./../../assets/Images/Dashboard/filter.svg";
 import SearchBox from "./../Reusable/SearchBox";
 import campaignprofile from "./../../assets/Images/Campaign/campaignprofile.png";
+import Rejected from "./../Reusable/Rejected"
+import Unapproved from "./../Reusable/Unapproved"
 import dot from "./../../assets/Images/Dashboard/dots.svg";
 import { useNavigate } from "react-router-dom";
 import { getCampaigns, date, searchcampaigns } from "../../api/axios";
@@ -26,6 +28,7 @@ const Campaigns = () => {
   const callApi = async (count) => {
     var response_data = await getCampaigns(count, 10);
     console.log(Math.ceil(response_data.metaData[0].total / 10));
+    debugger
     setData(response_data.startups);
     setMetaData(response_data.metaData[0]);
     setTotalPage(Math.ceil(response_data.metaData[0].total / 10));
@@ -105,10 +108,13 @@ const Campaigns = () => {
                   <div>
                     <img
                       Crossorigin="anonymous"
-                      src={`https://stepdev.up.railway.app/media/getImage/${item.logo}`}
+                      src={`https://stepev-dev.up.railway.app/media/getImage/${item.logo}`}
                       alt="User"
                     />{" "}
-                    <p>{item.businessName}</p>
+                    <span>
+                      {item.businessName}
+                      {item.status === "Unapproved" ? (<Unapproved />) : null}
+                      {item.status === "Rejected" ? (<Rejected />) : null}</span>
                   </div>
                 </td>
                 <td className="campaignDull campaignDate">

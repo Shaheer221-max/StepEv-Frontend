@@ -8,6 +8,7 @@ import lock from "./../../assets/Images/Setting/lock.svg";
 import notif from "./../../assets/Images/Setting/notif.svg";
 import user from "./../../assets/Images/Setting/user.svg";
 import close from "./../../assets/Images/close.png";
+import { updatePassword } from "../../api/axios";
 
 import SettingBox from "./SettingBox";
 const Setting = () => {
@@ -50,11 +51,15 @@ const Setting = () => {
       </div>
 
       {setting ? (
-        <div className="settingBox">
-          <div className="skillClose" onClick={() => handleClose()}>
-            <img align="right" src={close} alt="Close btn" />
+        <div className="modalbackdrop">
+          <div className="dialog">
+            <div className="settingBox">
+              <div className="skillClose" onClick={() => handleClose()}>
+                <img align="right" src={close} alt="Close btn" />
+              </div>
+              <SettingBox handleClose={handleClose} />
+            </div>
           </div>
-          <SettingBox handleClose={handleClose} />
         </div>
       ) : null}
     </>

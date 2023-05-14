@@ -822,3 +822,34 @@ export const updatePassword = async(newPassword,oldPassword) => {
       res = error.response.data;
     });
 }
+
+export const getorder = async(id) => {
+  let res;
+  var data = JSON.stringify({
+    orderId: id
+  });
+  var config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: `${base_url}/orders/getorderdetails`,
+    headers: {
+      Authorization:
+        
+      // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UyYTVlZjhkMDQ3YjAwMWUwNWI1Y2UiLCJyb2xlIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY3NTk2NzM5MX0.xLaQxiEQ4TrPQMxWcCgQrY-gFiJNq_-AbA73GfkzlDo",
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDU5MjY4YjU2ZjAwNjNkZTAxOTRkOGIiLCJyb2xlIjoiQWRtaW4iLCJlbWFpbCI6ImFzamFkYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg0MDU3NzM1fQ.p_qsYzvjLPdjVAIw_KrJyAcZDGQ2QvlkVfXjTBX0o1I",
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  await axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      res = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  return res;
+
+}

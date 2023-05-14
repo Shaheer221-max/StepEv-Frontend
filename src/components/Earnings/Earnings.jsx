@@ -6,10 +6,17 @@ import SearchBox from "./../Reusable/SearchBox";
 import filter from "./../../assets/Images/Dashboard/filter.svg";
 import gross from "./../../assets/Images/Funding/gross.png";
 import { appEarnings, date } from "../../api/axios";
+import Order from "./Order";
+import close from "./../../assets/Images/close.png";
 
 const Earnings = () => {
   const [data, setData] = useState();
   const [metaData, setMetaData] = useState();
+  const [orderId, setOrderId] = useState();
+  const [viewOrder, setViewOrder] = useState(false);
+  const handleClose = () => {
+    setViewOrder(!viewOrder);
+  };
 
   const getData = async () => {
     let response = await appEarnings();
@@ -17,6 +24,7 @@ const Earnings = () => {
   };
   useEffect(() => {
     getData();
+    // console.log("tatat", data[0])
   }, []);
   return (
     <>
@@ -69,7 +77,7 @@ const Earnings = () => {
               <td align="left" className="funds_name alignFundProfile">
                 <img
                   crossOrigin="anonymous"
-                  src={`https://stepdev.up.railway.app/media/getImage/${item.userId.avatar}`}
+                  src={`https://stepev-dev.up.railway.app/media/getImage/${item.userId.avatar}`}
                   alt=""
                 />{" "}
                 <p>{item.userId.name}</p>
@@ -80,7 +88,13 @@ const Earnings = () => {
               </td>
               <td className="funds_price">${item?.appEarning}</td>
               <td>
-                <div className="funds_action_release funds_action_btn">
+                <div 
+                onClick={() => {
+                  setOrderId(item?.orderId._id)
+                  handleClose()
+                }}
+                
+                className="funds_action_release funds_action_btn">
                   <p>View Order</p>
                 </div>
               </td>
@@ -88,6 +102,18 @@ const Earnings = () => {
           ))}
         </tbody>
       </table>
+      {viewOrder ? (
+        <div className="modalbackdrop">
+          <div className="dialog">
+            <div className="settingBox">
+              <div className="skillClose">
+                <img align="right" src={close} alt="Close btn" onClick={() => handleClose()} />
+              </div>
+              <Order order={orderId} handleClose={handleClose} />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };

@@ -4,4 +4,48 @@
   align-items: center;
   padding: 0 4.55vw;
   margin: 2.73vw 0;
+    
+
+}
+
+
+.settingBox {
+  width: 40vw;
+  border-radius: 1vw;
+  height: 30vw;
+  background-color: var(--white-color);
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /* opacity: 1; */
+  
+}
+
+.dialog {
+  width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    padding: 10px 20px 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+}
+.modalbackdrop{
+  position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    /* background-color:rgba(0,0,0,0.2); */
+    backdrop-filter:blur(5px);
+
 }

@@ -6,7 +6,7 @@ import bin2 from "./../../assets/Images/User Profile/bin2.svg";
 import { deleteUser, UnSuspendUser } from "../../api/axios";
 import "./PopupMenu.css";
 
-const PopupMenu = ({ ban, userId }) => {
+const PopupMenu = ({ ban, userId}) => {
   const [menu, setMenu] = useState();
   const [banState, setbanState] = useState(ban);
   const handleMenu = () => {
@@ -33,9 +33,7 @@ const PopupMenu = ({ ban, userId }) => {
         src={dots}
         alt=""
         className="dots"
-        onClick={() => {
-          handleMenu();
-        }}
+       
       />
       {menu ? (
         <div className="menuPopup">

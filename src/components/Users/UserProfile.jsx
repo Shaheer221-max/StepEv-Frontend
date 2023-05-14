@@ -115,7 +115,7 @@ const UserProfile = () => {
         <div className="userProfilePicture">
           <img
             crossOrigin="anonymous"
-            src={`https://stepdev.up.railway.app/media/getImage/${data?.avatar}`}
+            src={`https://stepev-dev.up.railway.app/media/getImage/${data?.avatar}`}
             alt="profile"
           />
         </div>

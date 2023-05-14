@@ -82,7 +82,7 @@ const CampaignInfo = () => {
       <div className="campaignVideo">
         <img
           crossOrigin="anonymous"
-          src={`https://stepdev.up.railway.app/media/getImage/${data?.startup?.promoMedia?.url}`}
+          src={`https://stepev-dev.up.railway.app/media/getImage/${data?.startup?.promoMedia?.url}`}
           alt=""
         />
       </div>
@@ -94,7 +94,7 @@ const CampaignInfo = () => {
           <TeamMember
             name={item?.member.name}
             position={item?.position}
-            img={`https://stepdev.up.railway.app/media/getImage/${item?.member.avatar}`}
+            img={`https://stepev-dev.up.railway.app/media/getImage/${item?.member.avatar}`}
           />
         ))}
       </div>
